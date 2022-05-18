@@ -11,5 +11,8 @@ namespace punkTwoFactor.Models
 
         [DataMember(Name = "secret")]
         public string Secret { get; set; }
+
+        [DataMember(Name = "manualEntryKey")]
+        public string ManualEntryKey { get; set; }
     }
 }

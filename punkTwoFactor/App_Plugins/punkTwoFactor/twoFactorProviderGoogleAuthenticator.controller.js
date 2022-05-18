@@ -10,6 +10,7 @@
             vm.providerName = $scope.model?.providerName;
             vm.qrCodeImageUrl = "";
             vm.secret = "";
+            vm.manualEntryKey = "";
             vm.code = "";
             vm.authForm = {};
             vm.buttonState = "init";
@@ -24,6 +25,7 @@
                         // This response is the model I defined to be returned from ITwoFactorProvider.GetSetupDataAsync
                         vm.qrCodeImageUrl = response.qrCodeSetupImageUrl;
                         vm.secret = response.secret;
+                        vm.manualEntryKey = response.manualEntryKey
                     })
                     .catch(function () {
                         notificationsService.error("Could not fetch login info");

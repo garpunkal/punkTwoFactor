@@ -52,7 +52,8 @@ namespace punkTwoFactor.Providers
             return Task.FromResult<object>(new TwoFactorAuthInfo()
             {
                 QrCodeSetupImageUrl = setupInfo.QrCodeSetupImageUrl,
-                Secret = secret
+                Secret = secret,
+                ManualEntryKey = setupInfo.ManualEntryKey
             });
         }
 
