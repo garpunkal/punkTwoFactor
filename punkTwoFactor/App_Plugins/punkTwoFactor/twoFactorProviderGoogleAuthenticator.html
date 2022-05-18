@@ -1,0 +1,62 @@
+﻿<div ng-controller="CustomCode.TwoFactorProviderGoogleAuthenticator as vm">
+
+    <umb-editor-view ng-cloak>
+
+        <form name="vm.authForm" method="POST" ng-submit="vm.validateAndSave()">
+
+            <umb-editor-header name="vm.title" name-locked="true" hide-alias="true" hide-icon="true" hide-description="true">
+            </umb-editor-header>
+
+            <umb-editor-container>
+
+                <umb-box>
+
+                    <umb-box-header title="Setup information"></umb-box-header>
+
+                    <umb-box-content>
+
+                        <div class="control-group text-center">
+                            <img alt="QR code for Google Authenticator" ng-src="{{vm.qrCodeImageUrl}}" ng-if="vm.qrCodeImageUrl" />
+                        </div>
+
+                        <umb-control-group label-for="token" alias="2facode"
+                                           label="Scan with your authenticator app and enter the code:" required="true">
+
+                            <input umb-auto-focus id="2facode" class="-full-width-input input-xlarge" type="text" name="token"
+                                   inputmode="numeric" autocomplete="one-time-code" ng-model="vm.code" localize="placeholder"
+                                   placeholder="@login_2faCodeInputHelp" aria-required="true" required />
+
+                            <div ng-messages="vm.authForm.token.$error" role="alert">
+                                <span class="umb-validation-label" ng-message="token">
+                                    <localize key="login_2faInvalidCode">Invalid code entered</localize>
+                                </span>  
+                            </div>
+
+                        </umb-control-group>
+
+                    </umb-box-content>
+
+                </umb-box>
+
+            </umb-editor-container>
+
+            <umb-editor-footer>
+
+                <umb-editor-footer-content-right>
+
+                    <umb-button type="button" button-style="link" label-key="general_close" shortcut="esc" action="vm.close()">
+                    </umb-button>
+
+                    <umb-button state="vm.buttonState" button-style="success" label-key="buttons_save" type="submit"
+                                disabled="vm.code.length === 0">
+                    </umb-button>
+
+                </umb-editor-footer-content-right>
+
+            </umb-editor-footer>
+
+        </form>
+
+    </umb-editor-view>
+
+</div>

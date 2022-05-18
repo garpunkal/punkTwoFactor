@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<ContentTargetFolders>.</ContentTargetFolders>
+		<Product>punkTwoFactor</Product>
+		<PackageId>punkTwoFactor</PackageId>
+		<Title>punkTwoFactor</Title>
+		<Description>An app_plugin for Umbraco that sets up Two Factor Authentication.</Description>
+		<PackageTags>umbraco plugin package</PackageTags>
+		<RootNamespace>punkTwoFactor</RootNamespace>
+		<Authors>Gareth Wright</Authors>
+		<PackageProjectUrl>https://github.com/garpunkal/punkTwoFactor</PackageProjectUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/garpunkal/punkTwoFactor</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="GoogleAuthenticator" Version="2.5.0" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="9.5.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="App_Plugins\punkTwoFactor\**\*.*">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+		<None Include="build\**\*.*">
+			<Pack>True</Pack>
+			<PackagePath>buildTransitive</PackagePath>
+		</None>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\logo.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="App_Plugins\punkTwoFactor\" />
+		<Folder Include="build\" />
+	</ItemGroup>
+</Project>  

@@ -1,0 +1,28 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <PunkTwoFactorContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\punkTwoFactor\**\*.*</PunkTwoFactorContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyPunkTwoFactorAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <PunkTwoFactorContentFiles Include="$(PunkTwoFactorContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying punkTwoFactor files: $(PunkTwoFactorContentFilesPath) - #@(PunkTwoFactorContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(PunkTwoFactorContentFiles)"
+            DestinationFiles="@(PunkTwoFactorContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\punkTwoFactor\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearPunkTwoFactorAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <PunkTwoFactorDir Include="$(MSBuildProjectDirectory)\App_Plugins\punkTwoFactor\" />
+        </ItemGroup>
+        <Message Text="Clear old punkTwoFactor data"  Importance="high" />
+        <RemoveDir Directories="@(PunkTwoFactorDir)"  />
+    </Target>
+
+</Project>
+ 
