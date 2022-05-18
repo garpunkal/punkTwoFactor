@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using Google.Authenticator;
 
 namespace punkTwoFactor.Models
 {

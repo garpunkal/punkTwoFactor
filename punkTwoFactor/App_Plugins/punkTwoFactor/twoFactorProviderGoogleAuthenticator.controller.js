@@ -22,7 +22,6 @@
                 vm.buttonState = "init";
                 twoFactorLoginResource.setupInfo(vm.providerName)
                     .then(function (response) {
-                        // This response is the model I defined to be returned from ITwoFactorProvider.GetSetupDataAsync
                         vm.qrCodeImageUrl = response.qrCodeSetupImageUrl;
                         vm.secret = response.secret;
                         vm.manualEntryKey = response.manualEntryKey
