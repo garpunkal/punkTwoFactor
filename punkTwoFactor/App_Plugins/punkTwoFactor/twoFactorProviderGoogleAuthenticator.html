@@ -17,9 +17,9 @@
 
                         <div class="control-group text-center">
                             <img alt="QR code for Google Authenticator" ng-src="{{vm.qrCodeImageUrl}}" ng-if="vm.qrCodeImageUrl" />
-                            <small>
-                                Manual Entry Key: <br>{{vm.manualEntryKey}}
-                            </small>
+                            <p class="code">
+                                {{vm.manualEntryKey}}
+                            </p>
                         </div>
 
                        
