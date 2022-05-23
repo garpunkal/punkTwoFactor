@@ -28,7 +28,7 @@ Add the following section to your appsettings.json:
 ```
 
 Add the following code block within your **ConfigureServices** section above the Umbraco setup:
-z```csharp
+```csharp
 services.Configure<TwoFactorConfig>(_config.GetSection("punkTwoFactor"));
 TwoFactorConfig twoFactorConfiguration = new();
 _config.GetSection("punkTwoFactor").Bind(twoFactorConfiguration);
