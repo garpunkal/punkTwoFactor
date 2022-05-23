@@ -1,4 +1,5 @@
 ﻿using Google.Authenticator;
+using Microsoft.Extensions.Options;
 using punkTwoFactor.Models;
 using System;
 using System.Threading.Tasks;
@@ -13,9 +14,9 @@ namespace punkTwoFactor.Providers
         private readonly TwoFactorConfig _twoFactorConfig;
         private readonly IUserService _userService;       
 
-        public UmbracoUserAppAuthenticator(TwoFactorConfig twoFactorConfig, IUserService userService)
+        public UmbracoUserAppAuthenticator(IOptions<TwoFactorConfig> twoFactorConfig, IUserService userService)
         {
-            _twoFactorConfig = twoFactorConfig ?? throw new ArgumentNullException(nameof(twoFactorConfig));
+            _twoFactorConfig = twoFactorConfig.Value ?? throw new ArgumentNullException(nameof(twoFactorConfig));
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
