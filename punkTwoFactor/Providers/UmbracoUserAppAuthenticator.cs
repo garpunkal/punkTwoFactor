@@ -28,7 +28,7 @@ namespace punkTwoFactor.Providers
             var twoFactorAuthenticator = new TwoFactorAuthenticator();
             SetupCode setupInfo = twoFactorAuthenticator.GenerateSetupCode(_twoFactorConfig.Issuer, user.Username, secret, false);
 
-            return Task.FromResult<object>(new TwoFactorAuthInfo()
+            return Task.FromResult<object>(new TwoFactorAuthInfo
             {
                 QrCodeSetupImageUrl = setupInfo.QrCodeSetupImageUrl,
                 ManualEntryKey = setupInfo.ManualEntryKey,
