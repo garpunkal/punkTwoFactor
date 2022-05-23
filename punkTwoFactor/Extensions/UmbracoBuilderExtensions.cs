@@ -9,12 +9,20 @@ namespace punkTwoFactor.Extensions
 {
     public static class UmbracoBuilderExtensions
     {
-        public static IUmbracoBuilder AddTwoFactorAuthentication(this IUmbracoBuilder builder, Models.TwoFactorConfig config)
+        public static IUmbracoBuilder AddBackOfficeTwoFactorAuthentication(this IUmbracoBuilder builder, Models.TwoFactorConfig config)
         {
             if (config == null) config = new Models.TwoFactorConfig();
             var identityBuilder = new BackOfficeIdentityBuilder(builder.Services);
             identityBuilder.AddTwoFactorProvider<UmbracoUserAppAuthenticator>(config.ProviderName);
-            builder.Services.Configure<TwoFactorLoginViewOptions>(config.ProviderName, options => { options.SetupViewPath = config.View; });
+            builder.Services.Configure<TwoFactorLoginViewOptions>(config.ProviderName, options => { options.SetupViewPath = config.BackOfficeView; });
+            return builder;
+        }
+
+        public static IUmbracoBuilder AddMemberTwoFactorAuthentication(this IUmbracoBuilder builder, Models.TwoFactorConfig config)
+        {
+            if (config == null) config = new Models.TwoFactorConfig();
+            var identityBuilder = new MemberIdentityBuilder(builder.Services);
+            identityBuilder.AddTwoFactorProvider<UmbracoUserAppAuthenticator>(config.ProviderName);
             return builder;
         }
     }
