@@ -7,7 +7,7 @@
 		<PackageId>punkTwoFactor</PackageId>
 		<Title>punkTwoFactor</Title>
 		<Description>An app_plugin for Umbraco that sets up Two Factor Authentication.</Description>
-		<PackageTags>umbraco plugin package</PackageTags>
+		<PackageTags>umbraco-marketplace</PackageTags>
 		<RootNamespace>punkTwoFactor</RootNamespace>
 		<Authors>Gareth Wright</Authors>
 		<PackageProjectUrl>https://github.com/garpunkal/punkTwoFactor</PackageProjectUrl>

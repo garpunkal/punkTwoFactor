@@ -12,9 +12,6 @@ Install-Package punkTwoFactor
 
 https://www.nuget.org/packages/punkTwoFactor/
 
-## Compatibility
-
-- Umbraco 9.5+
 
 ## Installation
 
@@ -48,4 +45,6 @@ services
     .Build();
 ```
 
-That's It!
+## Compatibility
+
+- Umbraco 9.5+
