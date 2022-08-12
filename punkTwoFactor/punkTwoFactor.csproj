@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<ContentTargetFolders>.</ContentTargetFolders>
 		<Product>punkTwoFactor</Product>
 		<PackageId>punkTwoFactor</PackageId>
@@ -18,9 +18,9 @@
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="GoogleAuthenticator" Version="2.5.0" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="9.5.0" />
-		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
+		<PackageReference Include="GoogleAuthenticator" Version="3.0.0" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="10.1.0" />
+		<PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
