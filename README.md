@@ -24,11 +24,14 @@ Add the following section to your appsettings.json:
   }
 ```
 
+Add using statement:
+```csharp
+using punkTwoFactor.Extensions;
+```
+
 Add the following code block within your **ConfigureServices** section above the Umbraco setup:
 ```csharp
-services.Configure<TwoFactorConfig>(_config.GetSection("punkTwoFactor"));
-TwoFactorConfig twoFactorConfiguration = new();
-_config.GetSection("punkTwoFactor").Bind(twoFactorConfiguration);
+var twoFactorConfiguration = services.ConfigureTwoFactorConfig(_config);
 ```
 
 Now add the "AddBackOfficeTwoFactorAuthentication" extension to the Umbraco setup. 
@@ -47,4 +50,4 @@ services
 
 ## Compatibility
 
-- Umbraco 9.5+
+- Umbraco 10+
