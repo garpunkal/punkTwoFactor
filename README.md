@@ -50,4 +50,4 @@ services
 
 ## Compatibility
 
-- Umbraco 10+
+- Umbraco 10+    
