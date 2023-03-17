@@ -1,5 +1,17 @@
 {
+  "Title": "punkTwoFactor",
+  "Description": "A simple Umbraco package that uses the documented implementation from Umbraco.",
   "Category": "Editor Tools",
+  "Tags": [ "Block List" ],
   "LicenseTypes": [ "Free" ],
-  "PackageType": "Package"
+  "PackageType": "Package", 
+  "AuthorDetails": {
+    "Name": "Gareth Wright",
+    "Url": "https://garpunkal.dev",
+    "ImageUrl": "https://github.com/garpunkal.png",
+    "SyncContributorsFromRepository": true
+  },
+  "DocumentationUrl": "https://github.com/garpunkal/punkTwoFactor",
+  "IssueTrackerUrl": "https://github.com/garpunkal/punkTwoFactor/issues",
 }
+

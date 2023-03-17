@@ -1,6 +1,6 @@
 # punkTwoFactor
 
-[![.github/workflows/release.yml](https://github.com/garpunkal/punkTwoFactor/actions/workflows/release.yml/badge.svg)](https://github.com/garpunkal/punkTwoFactor/actions/workflows/release.yml)
+[![NuGet release](https://img.shields.io/nuget/v/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
 
 A simple Umbraco package that uses the documented implementation from Umbraco https://our.umbraco.com/documentation/Reference/Security/two-factor-authentication/#two-factor-authentication-for-users and adds some additional tweaks.
 
