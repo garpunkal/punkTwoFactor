@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -17,7 +20,10 @@ jobs:
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=${VERSION} --output .
+    - name: NuGet Login (Trusted Publishing)
+      id: nuget-login
+      uses: NuGet/login@v1
+      with:
+        user: garpunkal
     - name: Push
-      run: dotnet nuget push punkTwoFactor.${VERSION}.nupkg --api-key ${NUGET_API_KEY} --source https://api.nuget.org/v3/index.json
-      env:
-        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push punkTwoFactor.${VERSION}.nupkg --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
