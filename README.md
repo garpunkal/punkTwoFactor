@@ -2,52 +2,62 @@
 
 [![NuGet release](https://img.shields.io/nuget/v/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
 
-A simple Umbraco package that uses the documented implementation from Umbraco https://our.umbraco.com/documentation/Reference/Security/two-factor-authentication/#two-factor-authentication-for-users and adds some additional tweaks.
+An Umbraco package that sets up Two Factor Authentication (2FA) for Umbraco backoffice users and members using standard TOTP authenticator apps (e.g., Google Authenticator, Microsoft Authenticator, 1Password).
 
-## Nuget
+## NuGet
 
+```shell
+dotnet add package punkTwoFactor
 ```
+
+or
+
+```shell
 Install-Package punkTwoFactor
 ```
 
 https://www.nuget.org/packages/punkTwoFactor/
 
+## Configuration
 
-## Installation
+In Umbraco 17+, `punkTwoFactor` automatically registers itself via an Umbraco `IComposer` on startup.
 
-Add the following section to your appsettings.json:
+Optionally add the following section to your `appsettings.json` to customize the authenticator issuer name or provider identifier:
+
 ```json
 "punkTwoFactor": {
-    "ProviderName": "Two Factor Authentication",
-    "Issuer": "Two Factor Authentication - Dev",
-    "BackOfficeView": "..\\App_Plugins\\punkTwoFactor\\twoFactorProviderGoogleAuthenticator.html"
-  }
+  "ProviderName": "Two Factor Authentication",
+  "Issuer": "My Umbraco Site"
+}
 ```
 
-Add using statement:
+- **`Issuer`**: The display name shown inside authenticator apps (e.g. Google Authenticator, Microsoft Authenticator).
+- **`ProviderName`**: The technical name used to register the provider (defaults to `"Two Factor Authentication"`).
+
+## Usage in Backoffice
+
+1. Log into the Umbraco backoffice.
+2. Click your user avatar in the top-right corner.
+3. Click **Configure Two-Factor**.
+4. Click **Enable** on Two Factor Authentication.
+5. Scan the QR code with your mobile authenticator app and enter the 6-digit verification code.
+
+## Custom Registration (Optional)
+
+If you prefer to configure or register the provider manually in code:
+
 ```csharp
 using punkTwoFactor.Extensions;
-```
 
-Add the following code block within your **ConfigureServices** section above the Umbraco setup:
-```csharp
-var twoFactorConfiguration = services.ConfigureTwoFactorConfig(_config);
-```
+// Configure options from appsettings:
+services.ConfigureTwoFactorConfig(builder.Config);
 
-Now add the "AddBackOfficeTwoFactorAuthentication" extension to the Umbraco setup. 
-
-```csharp
-services
-    .AddUmbraco(_env, _config)
-    .AddBackOffice()
-    .AddWebsite()
-    .AddComposers()
-    .AddServices()
-    .AddNotifications()               
-    .AddBackOfficeTwoFactorAuthentication(twoFactorConfiguration)
-    .Build();
+// Or configure via builder:
+builder.AddBackOfficeTwoFactorAuthentication();
+builder.AddMemberTwoFactorAuthentication();
 ```
 
 ## Compatibility
 
-- Umbraco 10+    
+- Umbraco 17+
+- .NET 10+

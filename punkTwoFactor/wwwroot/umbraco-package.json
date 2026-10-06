@@ -1,0 +1,17 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "id": "punkTwoFactor",
+  "name": "punkTwoFactor",
+  "version": "17.0.0",
+  "extensions": [
+    {
+      "type": "mfaLoginProvider",
+      "alias": "punkTwoFactor",
+      "name": "punkTwoFactor",
+      "forProviderName": "Two Factor Authentication",
+      "meta": {
+        "label": "Two Factor Authentication"
+      }
+    }
+  ]
+}

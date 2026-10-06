@@ -2,7 +2,7 @@
   "Title": "punkTwoFactor",
   "Description": "A simple Umbraco package that uses the documented implementation from Umbraco.",
   "Category": "Editor Tools",
-  "Tags": [ "Block List" ],
+  "Tags": [ "Security", "Authentication", "2FA" ],
   "LicenseTypes": [ "Free" ],
   "PackageType": "Package", 
   "AuthorDetails": {

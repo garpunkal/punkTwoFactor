@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using punkTwoFactor.Models;
 
@@ -7,7 +7,7 @@ namespace punkTwoFactor.Extensions
     public static class ConfigurationTwoFactorConfig
     {
         public static TwoFactorConfig ConfigureTwoFactorConfig(
-            this IServiceCollection services, IConfiguration config, string configName = "punkTwoFactor")
+            this IServiceCollection services, IConfiguration config, string configName = TwoFactorConfig.ConfigName)
         {
             services.Configure<TwoFactorConfig>(config.GetSection(configName));
             TwoFactorConfig twoFactorConfig = new();

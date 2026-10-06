@@ -1,8 +1,0 @@
-{
-  "javascript": [
-    "~/App_Plugins/punkTwoFactor/twoFactorProviderGoogleAuthenticator.controller.js"
-  ],
-   "css": [
-    "~/App_Plugins/punkTwoFactor/punkTwoFactor.css"
-  ]
-}
