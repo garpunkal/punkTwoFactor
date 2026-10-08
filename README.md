@@ -4,7 +4,7 @@
 
 [![NuGet release](https://img.shields.io/nuget/v/punkTwoFactor.svg)](https://www.nuget.org/packages/punkTwoFactor/)
 
-An Umbraco package that sets up Two Factor Authentication (2FA) for Umbraco backoffice users and members using standard TOTP authenticator apps (e.g., Google Authenticator, Microsoft Authenticator, 1Password).
+An Umbraco package that sets up Two Factor Authentication (2FA) for Umbraco backoffice users using standard TOTP authenticator apps (e.g., Google Authenticator, Microsoft Authenticator, 1Password).
 
 ## NuGet
 
