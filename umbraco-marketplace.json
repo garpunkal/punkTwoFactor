@@ -11,6 +11,16 @@
     "ImageUrl": "https://github.com/garpunkal.png",
     "SyncContributorsFromRepository": true
   },
+  "Screenshots": [
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/punkTwoFactor/main/screenshots/thumbnail.png",
+      "Caption": "punkTwoFactor Two-Factor Authentication Setup with QR Code in Umbraco"
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/garpunkal/punkTwoFactor/main/screenshots/qr-modal.png",
+      "Caption": "Umbraco Backoffice QR Code Scan and Verification Modal"
+    }
+  ],
   "DocumentationUrl": "https://github.com/garpunkal/punkTwoFactor",
   "IssueTrackerUrl": "https://github.com/garpunkal/punkTwoFactor/issues"
 }
