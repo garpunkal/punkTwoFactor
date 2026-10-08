@@ -746,3 +746,16 @@ FodyWeavers.xsd
 **/umbraco/mediacache/
 
 .DS_Store
+
+# Playwright e2e
+**/e2e/node_modules/
+**/e2e/test-results/
+**/e2e/playwright-report/
+**/e2e/.env
+**/e2e/.test-state.json
+
+# SQLite runtime DB
+*.sqlite.db*
+*.db-shm
+*.db-wal
+**/UmbracoTestSite/umbraco/Logs/
