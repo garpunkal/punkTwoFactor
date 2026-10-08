@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<StaticWebAssetBasePath>App_Plugins/punkTwoFactor</StaticWebAssetBasePath>
-		<Version>17.0.0</Version>
+		<Version>18.0.0</Version>
 		<Product>punkTwoFactor</Product>
 		<PackageId>punkTwoFactor</PackageId>
 		<Title>punkTwoFactor</Title>
@@ -23,10 +23,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="GoogleAuthenticator" Version="3.2.0" />
-		<PackageReference Include="Umbraco.Cms.Core" Version="17.7.1" />
-		<PackageReference Include="Umbraco.Cms.Api.Management" Version="17.7.1" />
-		<PackageReference Include="Umbraco.Cms.Web.Website" Version="17.7.1" />
-		<PackageReference Include="Umbraco.Cms.Web.Common" Version="17.7.1" />
+		<PackageReference Include="Umbraco.Cms.Core" Version="18.2.1" />
+		<PackageReference Include="Umbraco.Cms.Api.Management" Version="18.2.1" />
+		<PackageReference Include="Umbraco.Cms.Web.Website" Version="18.2.1" />
+		<PackageReference Include="Umbraco.Cms.Web.Common" Version="18.2.1" />
 	</ItemGroup>
 
 	<ItemGroup>

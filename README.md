@@ -20,7 +20,7 @@ https://www.nuget.org/packages/punkTwoFactor/
 
 ## Configuration
 
-In Umbraco 17+, `punkTwoFactor` automatically registers itself via an Umbraco `IComposer` on startup.
+In Umbraco 18+, `punkTwoFactor` automatically registers itself via an Umbraco `IComposer` on startup.
 
 Optionally add the following section to your `appsettings.json` to customize the authenticator issuer name or provider identifier:
 
@@ -59,5 +59,5 @@ builder.AddMemberTwoFactorAuthentication();
 
 ## Compatibility
 
-- Umbraco 17+
+- Umbraco 18+
 - .NET 10+
