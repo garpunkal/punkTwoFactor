@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
       id-token: write
@@ -18,8 +18,35 @@ jobs:
         dotnet-version: '10.0.x'
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+    - name: Build
+      run: dotnet build --configuration Release /p:Version=${VERSION}
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: 'npm'
+        cache-dependency-path: e2e/package-lock.json
+    - name: Install Playwright & dependencies
+      working-directory: e2e
+      run: |
+        npm ci
+        npx playwright install --with-deps chromium
+    - name: Trust .NET dev certificate
+      run: dotnet dev-certs https
+    - name: Run Playwright Tests
+      working-directory: e2e
+      run: npm test
+      env:
+        CI: true
+    - name: Upload Playwright Report on Failure
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: playwright-report-preview
+        path: e2e/playwright-report/
+        retention-days: 7
     - name: Pack
-      run: dotnet pack --configuration Release /p:Version=${VERSION} --output .
+      run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
     - name: NuGet Login (Trusted Publishing)
       id: nuget-login
       uses: NuGet/login@v1
